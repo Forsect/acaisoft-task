@@ -6,5 +6,7 @@ export interface Props {
 
 export interface IServersContext {
   serverList: SharedTypes.Server[];
-  loading: boolean;
+  turnOnServer: (id: number) => void;
+  turnOffServer: (id: number) => void;
+  rebootServer: (id: number) => void;
 }

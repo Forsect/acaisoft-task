@@ -1,7 +1,7 @@
 import toast from "react-hot-toast";
 
-export const showErrorToast = () => {
-  toast.error("Something went wrong! Try again later", {
+export const showErrorToast = (message?: string) => {
+  toast.error(message || "Something went wrong! Try again later", {
     position: "top-center",
   });
 };

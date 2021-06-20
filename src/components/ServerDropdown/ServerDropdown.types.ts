@@ -1,6 +1,6 @@
 import { Server } from "shared/types";
 
 export interface Props {
-  servers: Server[];
-  searchedServer: string;
+  server: Server;
+  onOptionClicked: () => void;
 }

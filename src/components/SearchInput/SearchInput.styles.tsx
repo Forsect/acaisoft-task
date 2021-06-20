@@ -15,6 +15,9 @@ export const Input = styled.input`
   font-family: "Open Sans";
   font-weight: 600;
   font-size: 14px;
-  color: #a9aec1;
   margin-left: 16px;
+  ::placeholder {
+    color: #a9aec1;
+    opacity: 1; /* Firefox */
+  }
 `;
