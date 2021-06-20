@@ -12,9 +12,7 @@ const ServerList = ({ servers, searchedServer }: Types.Props) => {
         </Styles.FixedWidthContainer>
       </Styles.HeaderContainer>
       {servers
-        .filter((server) =>
-          server.name.toLowerCase().includes(searchedServer.toLowerCase())
-        )
+        .filter((server) => server.name.toLowerCase().includes(searchedServer.toLowerCase()))
         .map((server) => (
           <ServerItem key={server.id} server={server} />
         ))}

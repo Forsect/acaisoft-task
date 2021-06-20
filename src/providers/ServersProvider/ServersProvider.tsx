@@ -27,22 +27,14 @@ const ServersProvider = ({ children }: Types.Props) => {
   const turnOnServer = async (id: number) => {
     return axios
       .put<SharedTypes.Server>(API + id + "/on")
-      .then((res) =>
-        setServerList((prev) =>
-          prev.map((server) => (server.id === id ? res.data : server))
-        )
-      )
+      .then((res) => setServerList((prev) => prev.map((server) => (server.id === id ? res.data : server))))
       .catch((err) => Utils.showErrorToast(err.errorMessage));
   };
 
   const turnOffServer = async (id: number) => {
     return axios
       .put<SharedTypes.Server>(API + id + "/off")
-      .then((res) =>
-        setServerList((prev) =>
-          prev.map((server) => (server.id === id ? res.data : server))
-        )
-      )
+      .then((res) => setServerList((prev) => prev.map((server) => (server.id === id ? res.data : server))))
       .catch((err) => Utils.showErrorToast(err.errorMessage));
   };
 
@@ -50,9 +42,7 @@ const ServersProvider = ({ children }: Types.Props) => {
     return axios
       .put<SharedTypes.Server>(API + id + "/reboot")
       .then((res) => {
-        setServerList((prev) =>
-          prev.map((server) => (server.id === id ? res.data : server))
-        );
+        setServerList((prev) => prev.map((server) => (server.id === id ? res.data : server)));
         pingServer(id);
       })
       .catch((err) => Utils.showErrorToast(err.errorMessage));
@@ -62,9 +52,7 @@ const ServersProvider = ({ children }: Types.Props) => {
     setTimeout(async () => {
       return axios.get<SharedTypes.Server>(API + id).then((res) => {
         if (res.data.status === SharedTypes.Status.ONLINE) {
-          setServerList((prev) =>
-            prev.map((server) => (server.id === id ? res.data : server))
-          );
+          setServerList((prev) => prev.map((server) => (server.id === id ? res.data : server)));
         } else {
           pingServer(id);
         }
