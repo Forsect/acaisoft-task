@@ -6,7 +6,7 @@ import ServerDropdown from "./ServerDropdown";
 it("Should render with no errors", () => {
   render(
     <ServersProvider>
-      <ServerDropdown server={{ id: 1, name: "Test", status: Status.ONLINE }} />
+      <ServerDropdown onOptionClicked={() => {}} server={{ id: 1, name: "Test", status: Status.ONLINE }} />
     </ServersProvider>
   );
 });
